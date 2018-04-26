@@ -74,7 +74,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\Column(name="isACertifiedPilot", type="smallint")
+     * @ORM\Column(name="isACertifiedPilot", type="boolean")
      */
     private $isACertifiedPilot;
 
