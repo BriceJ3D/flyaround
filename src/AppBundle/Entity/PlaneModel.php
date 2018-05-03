@@ -192,6 +192,7 @@ class PlaneModel
     {
         return $this->isAviable;
     }
+
     /**
      * Constructor
      */
@@ -234,7 +235,11 @@ class PlaneModel
         return $this->planes;
     }
 
-    public function __toString(){
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
         return $this->model;
     }
 }

@@ -39,7 +39,7 @@ class Flight
     private $pilot;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="Flight")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="Flight")
      */
     private $flights;
 
@@ -273,9 +273,6 @@ class Flight
         return $this->departure;
     }
 
-    public function __toString(){
-        return $this->departure . ' ' . $this->arrival;
-    }
 
     /**
      * Set arrival
@@ -348,6 +345,7 @@ class Flight
     {
         return $this->pilot;
     }
+
     /**
      * Constructor
      */
@@ -355,6 +353,7 @@ class Flight
     {
         $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 
     /**
      * Add flight
@@ -389,4 +388,10 @@ class Flight
     {
         return $this->flights;
     }
+
+    public function __toString()
+    {
+        return $this->departure . ' ' . $this->arrival;
+    }
+
 }

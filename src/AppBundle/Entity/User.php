@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="authorReview")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="reviewAuthor")
      */
-    private $authorReview;
+    private $authors;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="pilot")
@@ -233,10 +233,7 @@ class User
         return $this->isACertifiedPilot;
     }
 
-    public function __toString()
-    {
-        return $this->firstName . ' ' . $this->lastName;
-    }
+
     /**
      * Constructor
      */
@@ -347,4 +344,45 @@ class User
     {
         return $this->passengers;
     }
+
+
+    /**
+     * Add author
+     *
+     * @param \AppBundle\Entity\Review $author
+     *
+     * @return User
+     */
+    public function addAuthor(\AppBundle\Entity\Review $author)
+    {
+        $this->authors[] = $author;
+
+        return $this;
+    }
+
+    /**
+     * Remove author
+     *
+     * @param \AppBundle\Entity\Review $author
+     */
+    public function removeAuthor(\AppBundle\Entity\Review $author)
+    {
+        $this->authors->removeElement($author);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+
+    public function __toString()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
 }

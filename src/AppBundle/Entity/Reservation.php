@@ -137,9 +137,6 @@ class Reservation
         return $this->wasDone;
     }
 
-    public function __toString(){
-        return $this->id;
-    }
 
     /**
      * Set passenger
@@ -188,4 +185,10 @@ class Reservation
     {
         return $this->flight;
     }
+
+    public function __toString()
+    {
+        return $this->id;
+    }
+
 }

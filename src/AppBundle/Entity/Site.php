@@ -198,10 +198,7 @@ class Site
         return $this->city;
     }
 
-    public function __toString()
-    {
-        return $this->icao .  ' - ' . $this->name . ' ' . $this->city;
-    }
+
     /**
      * Constructor
      */
@@ -276,5 +273,10 @@ class Site
     public function getArrivals()
     {
         return $this->arrivals;
+    }
+
+    public function __toString()
+    {
+        return $this->icao .  ' - ' . $this->name . ' ' . $this->city;
     }
 }

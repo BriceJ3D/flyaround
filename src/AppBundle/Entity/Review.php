@@ -20,7 +20,7 @@ class Review
     private $userRated;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviewAuthor")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="authors")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reviewAuthor;
@@ -138,9 +138,6 @@ class Review
         return $this->note;
     }
 
-    public function __toString(){
-        return $this->id;
-    }
 
     /**
      * Set userRated
@@ -189,4 +186,10 @@ class Review
     {
         return $this->reviewAuthor;
     }
+
+    public function __toString()
+    {
+        return $this->id;
+    }
+
 }
