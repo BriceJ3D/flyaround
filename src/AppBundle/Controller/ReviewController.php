@@ -14,17 +14,12 @@ class ReviewController extends Controller
     /**
      * List one review with one user
      *
-     * @Route ("/review/{review_id}/user/{user_id}", name="listing_review", requirements={"review_id": "\d+"})
+     * @Route ("/review/", name="listing_review")
      * @Method("GET")
-     * @ParamConverter("review", options={"mapping": {"review_id": "id"}})
-     * @ParamConverter("user", options={"mapping": {"user_id": "id"}})
-     */
-    public function indexAction(Review $review, User $user)
+    */
+    public function indexAction()
     {
-        return $this->render('review/index.html.twig', array(
-            'review' => $review,
-            'user' => $user
-        ));
+        return $this->render('review/index.html.twig', array());
     }
 
     /**
