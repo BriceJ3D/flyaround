@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {# TODO in next quest#}
+    <div>
+        {{ form_start(form) }}
+        <div>{{ form_row(form.text) }}</div>
+        <div>{{ form_row(form.publicationDate) }}</div>
+        <div>{{ form_row(form.note) }}</div>
+        <div>{{ form_row(form.userRated) }}</div>
+        <div>{{ form_row(form.reviewAuthor) }}</div>
+        <div>{{ form_row(form._token) }}</div>
+        <div><input type="submit" value="Envoyer"</div>
+    </div>
+
 {% endblock %}
