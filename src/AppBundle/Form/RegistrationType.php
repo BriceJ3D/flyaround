@@ -4,34 +4,31 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class RegistrationType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('firstName')->add('lastName')->add('phoneNumber')->add('birthDate')->add('creationDate')->add('isACertifiedPilot');
     }
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+
+    public function getParent()
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
-        ));
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix()
     {
-        return 'appbundle_user';
+        return 'app_user_registration';
     }
 
+    public function getName()
 
+    {
+        return $this->getBlockPrefix();
+    }
 }
+
+
+
